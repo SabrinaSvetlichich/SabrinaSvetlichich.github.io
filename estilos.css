@@ -1,0 +1,191 @@
+html{
+    box-sizing: content-box;
+}
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding-top: 8%; /* Para compensar el header fijo */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    padding: 2%;
+    background-color: #111;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.615);
+    z-index: 1000;
+}
+nav{
+    padding: 1%;
+}
+a {
+    all: unset;
+    display: inline; /* Opcional, para asegurarse de que mantenga su comportamiento en línea */
+    cursor: pointer; /* Opcional, si quieres mantener el cursor de enlace */
+}
+
+h1 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.contenido {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+
+.proyecto {
+    margin: 2% auto;
+    position: relative;
+    overflow: visible;
+}
+
+.proyecto img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.proyecto p {
+    font-size: 12px;
+    max-width: 30%;
+    text-align: left;
+    padding: 20px 30px;
+    border: 1px solid white;
+    position: absolute;
+    right: -100px;
+    top: 40%;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.proyecto:hover p {
+    opacity: 1;
+    transform: translateX(200px);
+}
+
+time {
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.btn {
+    left: -50px;
+    top: 40%;
+    background-color: #111;
+    border: 1px solid;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.proyecto:hover .btn {
+    opacity: 1;
+    transform: translateX(-100px);
+}
+
+.active {
+    background-color: #fff;
+    color: #111;
+    font-weight: bold;
+}
+
+nav button {
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.8em;
+}
+
+nav button:hover {
+    background-color: #fff;
+    color: #111;
+    border-color: #fff;
+}
+
+nav button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav button:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@media (max-width: 600px){
+    .btn {
+        align-self: flex-start;
+    }
+    Header{
+    height: fit-content;
+    }
+    body{
+        padding-top: 50%;
+    }
+    .contenido{
+        overflow: visible;
+        margin: 2%;
+    }
+    .proyecto p, .btn {
+        opacity: 1 !important;
+        transform: none !important;
+        position: relative !important;
+        transition: none !important;
+    }
+    nav button{
+        font-size: 0.6em;
+        padding: 2%!important;
+    }
+    p{
+        display: none;
+    }
+    .proyecto .btn {
+        margin: 12%;
+        align-self: center;
+    }
+    h1{
+        padding: 1%;
+    }
+}
+
+@media (min-width: 600px) {
+    .proyecto {
+        max-width: 40% !important;
+        align-content:flex-start;
+    }
+    .btn:hover {
+        color: #111;
+        background-color: #fff;
+    }
+    nav button:hover {
+        background-color: #fff;
+    }
+}
